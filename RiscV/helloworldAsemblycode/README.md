@@ -2,22 +2,22 @@ The Hello World Program in Assembly
 
 The following assembly language code displays the string 'Hello World' on the screen −
 
-ection	.text
-   global _start     ;must be declared for linker (ld)
+<pre class="prettyprint notranslate prettyprinted" style=""><span class="pln">section	</span><span class="pun">.</span><span class="pln">text
+   </span><span class="kwd">global</span><span class="pln"> _start     </span><span class="pun">;</span><span class="pln">must be declared </span><span class="kwd">for</span><span class="pln"> linker </span><span class="pun">(</span><span class="pln">ld</span><span class="pun">)</span><span class="pln">
 	
-_start:	            ;tells linker entry point
-   mov	edx,len     ;message length
-   mov	ecx,msg     ;message to write
-   mov	ebx,1       ;file descriptor (stdout)
-   mov	eax,4       ;system call number (sys_write)
-   int	0x80        ;call kernel
+_start</span><span class="pun">:</span><span class="pln">	            </span><span class="pun">;</span><span class="pln">tells linker entry point
+   mov	edx</span><span class="pun">,</span><span class="pln">len     </span><span class="pun">;</span><span class="pln">message length
+   mov	ecx</span><span class="pun">,</span><span class="pln">msg     </span><span class="pun">;</span><span class="pln">message to write
+   mov	ebx</span><span class="pun">,</span><span class="lit">1</span><span class="pln">       </span><span class="pun">;</span><span class="pln">file descriptor </span><span class="pun">(</span><span class="pln">stdout</span><span class="pun">)</span><span class="pln">
+   mov	eax</span><span class="pun">,</span><span class="lit">4</span><span class="pln">       </span><span class="pun">;</span><span class="pln">system call number </span><span class="pun">(</span><span class="pln">sys_write</span><span class="pun">)</span><span class="pln">
+   </span><span class="kwd">int</span><span class="pln">	</span><span class="lit">0x80</span><span class="pln">        </span><span class="pun">;</span><span class="pln">call kernel
 	
-   mov	eax,1       ;system call number (sys_exit)
-   int	0x80        ;call kernel
+   mov	eax</span><span class="pun">,</span><span class="lit">1</span><span class="pln">       </span><span class="pun">;</span><span class="pln">system call number </span><span class="pun">(</span><span class="pln">sys_exit</span><span class="pun">)</span><span class="pln">
+   </span><span class="kwd">int</span><span class="pln">	</span><span class="lit">0x80</span><span class="pln">        </span><span class="pun">;</span><span class="pln">call kernel
 
-section	.data
-msg db 'Hello, world!', 0xa  ;string to be printed
-len equ $ - msg     ;length of the string
+section	</span><span class="pun">.</span><span class="pln">data
+msg db </span><span class="str">'Hello, world!'</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0xa</span><span class="pln">  </span><span class="pun">;</span><span class="kwd">string</span><span class="pln"> to be printed
+len equ $ </span><span class="pun">-</span><span class="pln"> msg     </span><span class="pun">;</span><span class="pln">length </span><span class="kwd">of</span><span class="pln"> the </span><span class="kwd">string</span></pre>
 
 When the above code is compiled and executed, it produces the following result −
 
